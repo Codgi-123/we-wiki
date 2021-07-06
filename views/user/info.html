@@ -1,0 +1,46 @@
+<div class="container-fluid">{{$user := .user}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="page-header">
+                <h3><i class="fa fa-address-card-o"></i> {{$user.username}}（{{$user.given_name}}）</h3>
+            </div>
+            <ul class="nav nav-tabs">
+                <li  class="active"><a href="/user/info?user_id={{$user.user_id}}">用户信息</a></li>
+                <li><a href="/user/followUser?user_id={{$user.user_id}}">关注用户</a></li>
+            </ul>
+            <br>
+                <div class="col-md-5">
+                    <h3>个人资料</h3>
+                    <div class="user-info">
+                        <div class="user-group">
+                            <label class="text-right text-font-15">用户名</label>
+                            <span>{{$user.username}}</span>
+                        </div>
+                        <div class="user-group">
+                            <label class="text-right text-font-15">姓名</label>
+                            <span>{{$user.given_name}}</span>
+                        </div>
+                        <div class="user-group">
+                            <label class="text-right text-font-15">邮箱</label>
+                            <span>{{$user.email}}</span>
+                        </div>
+                        <div class="user-group">
+                            <label class="text-right text-font-15">手机</label>
+                            <span>{{$user.mobile}}</span>
+                        </div>
+                        <div class="user-group">
+                            <label class="text-right text-font-15">状态</label>
+                            <span>
+                            {{if eq $user.is_forbidden "1"}}
+                                <span class="label label-success">屏蔽</span>
+                            {{else}}
+                                <span class="label label-success">正常</span>
+                            {{end}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
