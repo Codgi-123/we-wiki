@@ -35,10 +35,9 @@ func (this *UserController) Save() {
 		this.ViewError("请求方式有误！", "/system/user/add")
 	}
 	username := strings.TrimSpace(this.GetString("username", ""))
-	givenName := strings.TrimSpace(this.GetString("given_name", ""))
 	password := strings.TrimSpace(this.GetString("password", ""))
 	email := strings.TrimSpace(this.GetString("email", ""))
-	mobile := strings.TrimSpace(this.GetString("mobile", ""))
+	phone := strings.TrimSpace(this.GetString("phone", ""))
 	roleId := strings.TrimSpace(this.GetString("role_id", ""))
 	this.Ctx.Request.PostForm.Del("password")
 
@@ -49,9 +48,6 @@ func (this *UserController) Save() {
 	if !v.AlphaNumeric(username, "username").Ok {
 		this.jsonError("用户名格式不正确！")
 	}
-	if givenName == "" {
-		this.jsonError("姓名不能为空！")
-	}
 	if password == "" {
 		this.jsonError("密码不能为空！")
 	}
@@ -61,28 +57,23 @@ func (this *UserController) Save() {
 	if !v.Email(email, "email").Ok {
 		this.jsonError("邮箱格式不正确！")
 	}
-	if mobile == "" {
+	if phone == "" {
 		this.jsonError("手机号不能为空！")
 	}
 	if roleId == "" {
 		this.jsonError("没有选择角色！")
 	}
 
-	ok, err := models.UserModel.HasUsername(username)
+	ok, err := models.UserModel.CreateNew(username, password, phone, email, roleId)
 	if err != nil {
 		this.jsonError("添加用户失败！")
 	}
-	if ok {
-		this.jsonError("用户名已经存在！")
-	}
-
-	if !this.IsRoot() && roleId == fmt.Sprintf("%d", models.Role_Root_Id) {
-		this.jsonError("没有权限添加超级管理员！")
-	}
+	_ = ok
 
 	if err != nil {
 		this.jsonError("添加用户失败")
 	}
+
 	this.jsonSuccess("添加用户成功", nil, "/system/user/list")
 }
 
@@ -192,25 +183,20 @@ func (this *UserController) Modify() {
 		this.ViewError("请求方式有误！", "/system/user/list")
 	}
 	userId := strings.TrimSpace(this.GetString("user_id", ""))
-	givenName := strings.TrimSpace(this.GetString("given_name", ""))
 	email := strings.TrimSpace(this.GetString("email", ""))
-	mobile := strings.TrimSpace(this.GetString("mobile", ""))
-	roleId := strings.TrimSpace(this.GetString("role_id", ""))
 	phone := strings.TrimSpace(this.GetString("phone", ""))
+	roleId := strings.TrimSpace(this.GetString("role_id", ""))
 	password := strings.TrimSpace(this.GetString("password", ""))
 	this.Ctx.Request.PostForm.Del("password")
 
 	v := validation.Validation{}
-	if givenName == "" {
-		this.jsonError("姓名不能为空！")
-	}
 	if email == "" {
 		this.jsonError("邮箱不能为空！")
 	}
 	if !v.Email(email, "email").Ok {
 		this.jsonError("邮箱格式不正确！")
 	}
-	if mobile == "" {
+	if phone == "" {
 		this.jsonError("手机号不能为空！")
 	}
 
@@ -224,19 +210,19 @@ func (this *UserController) Modify() {
 	if user["role_id"] == fmt.Sprintf("%d", models.Role_Root_Id) {
 		roleId = fmt.Sprintf("%d", models.Role_Root_Id)
 	}
-	// 登录非 root 用户不能修改 root 用户信息
+	if password == "" {
+		this.jsonError("密码不能为空！")
+	}
 	if user["role_id"] == fmt.Sprintf("%d", models.Role_Root_Id) && !this.IsRoot() {
 		this.jsonError("没有权限修改！")
 	}
 
 	updateUser := map[string]interface{}{
-		"given_name": givenName,
-		"email":      email,
-		"mobile":     mobile,
-		"phone":      phone,
+		"email":   email,
+		"phone":   phone,
+		"role_id": roleId,
 	}
-	// 超级管理员才可以修改其他用户密码
-	if password != "" && this.IsRoot() {
+	if password != "" {
 		updateUser["password"] = models.UserModel.EncodePassword(password)
 	}
 	if roleId != "" {

@@ -17,14 +17,6 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                        <label class="col-sm-3 control-label"><span class="text-danger"> * </span> 姓名</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="given_name" class="form-control" placeholder="请输入姓名" value="{{$user.given_name}}" required>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
                         <label class="col-sm-3 control-label"><span class="text-danger"> * </span> 邮箱</label>
                         <div class="col-sm-8">
                             <input type="text" name="email" class="form-control" placeholder="请输入邮箱" value="{{$user.email}}" required>
@@ -35,7 +27,7 @@
                         <div class="row">
                         <label class="col-sm-3 control-label"><span class="text-danger"> * </span> 手机</label>
                         <div class="col-sm-8">
-                            <input type="text" name="mobile" class="form-control" placeholder="请输入手机号" value="{{$user.mobile}}" required>
+                            <input type="text" name="phone" class="form-control" placeholder="请输入手机号" value="{{$user.phone}}" required>
                         </div>
                         </div>
                     </div>
@@ -60,17 +52,14 @@
                         </div>
                         </div>
                     </div>
-                    <!-- 超级管理员才能修改用户密码 -->
-                    {{if eq $.login_role_id "1"}}
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-3 control-label"><span class="text-danger"></span> 密码</label>
+                                <label class="col-sm-3 control-label"><span class="text-danger"> * </span> 密码</label>
                                 <div class="col-sm-8">
                                     <input type="text" name="password" class="form-control" placeholder="注意：输入新密码后将重置该用户密码" value="" autocomplete="new-password">
                                 </div>
                             </div>
                         </div>
-                    {{end}}
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-offset-3">

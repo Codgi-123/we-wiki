@@ -65,7 +65,7 @@ img {
 }
 
 .login {
-    height: 450px;
+    height: 400px;
     width: 100%;
     min-width: 28rem;
     max-width: 40rem;
@@ -149,16 +149,6 @@ input[type=submit], input[type=button] {
     -webkit-appearance: none;
     outline: none;
     width: 100%;
-}
-
-.copyright {
-    font-size: 14px;
-    color: gray;
-    display: block;
-    width: 100%;
-    float: left;
-    text-align: center;
-    margin-top: 2rem;
 }
 
 #password_text {

@@ -25,12 +25,8 @@
             <thead>
             <tr>
                 <td class="w15p text-left"><strong>用户名</strong></td>
-                <td class="text-left"><strong>姓名</strong></td>
-                <td class="text-left"><strong>职位</strong></td>
                 <td class="w17p text-left"><strong>邮箱</strong></td>
-                <td class="w11p text-left"><strong>座机</strong></td>
                 <td class="w11p text-left"><strong>手机</strong></td>
-                <td class="w11p text-left"><strong>IM</strong></td>
                 <td class="w8p center"><strong>操作</strong></td>
             </tr>
             </thead>
@@ -44,12 +40,9 @@
                         <strong><a href="/user/info?user_id={{$user.user_id}}">{{$user.username}} <span class="text text-primary"><i class="glyphicon glyphicon-new-window"></i></span> </a></strong>
                     {{end}}
                 </td>
-                <td>{{$user.given_name}}</td>
                 <td>{{$user.position}}</td>
                 <td>{{$user.email}}</td>
                 <td>{{$user.phone}}</td>
-                <td>{{$user.mobile}}</td>
-                <td>{{$user.im}}</td>
                 <td class="center">
                     {{if eq $user.user_id $loginUserId}}
                     {{else}}

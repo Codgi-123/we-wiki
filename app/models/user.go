@@ -119,6 +119,28 @@ func (u *User) InsertNew(username, password, phone, email string) (id int64, err
 		"password":    md5str,
 		"phone":       phone,
 		"email":       email,
+		"role_id":     3,
+		"create_time": time.Now().Unix(),
+	}))
+	if err != nil {
+		return
+	}
+	id = rs.LastInsertId
+	return
+}
+
+func (u *User) CreateNew(username, password, phone, email, role_id string) (id int64, err error) {
+	db := G.DB()
+	var rs *mysql.ResultSet
+	data := []byte(password)
+	has := md5.Sum(data)
+	md5str := fmt.Sprintf("%x", has)
+	rs, err = db.Exec(db.AR().Insert(Table_User_Name, map[string]interface{}{
+		"username":    username,
+		"password":    md5str,
+		"phone":       phone,
+		"email":       email,
+		"role_id":     role_id,
 		"create_time": time.Now().Unix(),
 	}))
 	if err != nil {
@@ -147,7 +169,6 @@ func (u *User) Insert(userValue map[string]interface{}) (id int64, err error) {
 func (u *User) Update(userId string, userValue map[string]interface{}) (id int64, err error) {
 	db := G.DB()
 	var rs *mysql.ResultSet
-	userValue["update_time"] = time.Now().Unix()
 	rs, err = db.Exec(db.AR().Update(Table_User_Name, userValue, map[string]interface{}{
 		"user_id":   userId,
 		"is_delete": User_Delete_False,

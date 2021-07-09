@@ -5,7 +5,7 @@ export GO111MODULE=on
 # set goproxy
 export GOPROXY=https://goproxy.cn
 
-PROJECT_NAME="mm-wiki"
+PROJECT_NAME="we-wiki"
 INSTALL_NAME="install"
 BUILD_DIR="release"
 ROOT_DIR=$(pwd)
@@ -76,7 +76,7 @@ build_install() {
 }
 
 build() {
-    echo ">> MM-Wiki start build!"
+    echo ">> We-Wiki start build!"
     build_app
     build_install
     return

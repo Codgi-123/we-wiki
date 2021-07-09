@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME=mm-wiki
+APP_NAME=we-wiki
 INSTALL_NAME=install
 
 ROOT_DIR=$(cd "$(dirname "$0")";pwd)

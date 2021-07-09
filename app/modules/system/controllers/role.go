@@ -226,10 +226,6 @@ func (this *RoleController) GrantPrivilege() {
 	if roleId == "" {
 		this.jsonError("没有选择角色!")
 	}
-	//if len(privilegeIds) == 0 {
-	//	this.jsonError("没有选择权限!")
-	//}
-	// add default privileges
 	privilegeIds = append(privilegeIds, models.Privilege_Default_Ids...)
 
 	role, err := models.RoleModel.GetRoleByRoleId(roleId)
@@ -238,10 +234,6 @@ func (this *RoleController) GrantPrivilege() {
 	}
 	if len(role) == 0 {
 		this.jsonError("角色不存在")
-	}
-
-	if role["role_id"] == fmt.Sprintf("%d", models.Role_Root_Id) {
-		this.jsonError("超级管理员不需要授权！")
 	}
 
 	res, err := models.RolePrivilegeModel.GrantRolePrivileges(roleId, privilegeIds)

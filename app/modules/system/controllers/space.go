@@ -26,8 +26,6 @@ func (this *SpaceController) Save() {
 	description := strings.TrimSpace(this.GetString("description", ""))
 	tags := strings.TrimSpace(this.GetString("tags", ""))
 	visitLevel := strings.TrimSpace(this.GetString("visit_level", "public"))
-	isShare := strings.TrimSpace(this.GetString("is_share", "1"))
-	isExport := strings.TrimSpace(this.GetString("is_export", "0"))
 
 	if name == "" {
 		this.jsonError("空间名称不能为空！")
@@ -53,8 +51,6 @@ func (this *SpaceController) Save() {
 		"description": description,
 		"tags":        tags,
 		"visit_level": strings.ToLower(visitLevel),
-		"is_share":    isShare,
-		"is_export":   isExport,
 	})
 	if err != nil {
 		this.jsonError("添加空间失败")

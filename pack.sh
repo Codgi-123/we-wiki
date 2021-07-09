@@ -32,7 +32,7 @@ function clean() {
 function build_pack() {
   echo "Start pack $1 $2..."
   GOOS=$1 GOARCH=$2 ./build.sh
-  tar -czf "${RELEASE}/mm-wiki-${VER}-$1-$2.tar.gz" -C release .
+  tar -czf "${RELEASE}/we-wiki-${VER}-$1-$2.tar.gz" -C release .
 }
 
 OS=$(echo "$1" | tr '[:upper:]' '[:lower:]')

@@ -49,7 +49,7 @@ func (this *AuthorController) SignUp() {
 	}
 	_ = user
 
-	this.jsonSuccess("注册成功！", nil, "/auth/index")
+	this.jsonSuccess("注册成功！", nil, "/author/index")
 }
 
 // login

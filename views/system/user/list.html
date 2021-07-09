@@ -35,10 +35,9 @@
             <tr>
                 <th class="w8p">ID</th>
                 <th class="w15p">用户名</th>
-                <th>姓名</th>
                 <th class="w15p">邮箱</th>
                 <th class="w11p">手机号</th>
-                <th class="w15p">角色</th>
+                <th class="w11p">角色</th>
                 <th class="w8p">状态</th>
                 <th class="w10p">操作</th>
             </tr>
@@ -48,9 +47,8 @@
             <tr>
                 <td class="center">{{$user.user_id}}</td>
                 <td><a name="info" data-link="/system/user/info?user_id={{$user.user_id}}">{{$user.username}}</a></td>
-                <td><a name="info" data-link="/system/user/info?user_id={{$user.user_id}}">{{$user.given_name}}</a></td>
                 <td>{{$user.email}}</td>
-                <td class="center">{{$user.mobile}}</td>
+                <td class="center">{{$user.phone}}</td>
                 <td class="center">
                     <label class="text-info">{{$user.role_name}}</label>
                 </td>

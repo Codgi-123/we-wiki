@@ -32,6 +32,7 @@
                     <td class="w15p text-left"><strong>名称</strong></td>
                     <td class="text-left"><strong>描述</strong></td>
                     <td class="w15p text-left"><strong>标签</strong></td>
+                    <td class="w15p text-left"><strong>人数</strong></td>
                     <td class="w15p center"><strong>访问级别</strong></td>
                     <td class="w13p center"><strong>创建时间</strong></td>
                 </tr>
@@ -42,6 +43,7 @@
                     <td><a href="/space/document?space_id={{$space.space_id}}" target="_parent" title="查看空间文档"><strong>{{$space.name}}</strong> <span class="text text-primary"><i class="glyphicon glyphicon-new-window"></i></span></a></td>
                     <td>{{$space.description}}</td>
                     <td class="tags-show">{{$space.tags}}</td>
+                    <td class="center">{{$space.number}}</td>
                     <td class="center">
                     {{if eq $space.visit_level "private"}}
                         <label class="text text-danger">Private</label>

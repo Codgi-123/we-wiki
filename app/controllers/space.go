@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"strings"
 	"time"
 
@@ -68,6 +69,14 @@ func (this *SpaceController) List() {
 				break
 			}
 		}
+	}
+
+	for _, space := range spaces {
+		space_number, err := models.SpaceUserModel.CountSpaceUsersBySpaceId(space["space_id"])
+		if err != nil {
+			this.ViewError("获取空间列表失败", "/main/index")
+		}
+		space["number"] = fmt.Sprint(space_number)
 	}
 
 	this.Data["spaces"] = spaces

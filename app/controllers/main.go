@@ -76,7 +76,6 @@ func (this *MainController) Default() {
 		for _, user := range users {
 			if logDocument["user_id"] == user["user_id"] {
 				logDocument["username"] = user["username"]
-				logDocument["given_name"] = user["given_name"]
 				break
 			}
 		}
@@ -98,10 +97,6 @@ func (this *MainController) Default() {
 	this.Data["logDocuments"] = logDocuments
 	this.SetPaginator(number, count)
 	this.viewLayout("main/default", "default")
-}
-
-func (this *MainController) About() {
-	this.viewLayout("main/about", "default")
 }
 
 // 搜索，支持根据标题和内容搜索
@@ -138,27 +133,7 @@ func (this *MainController) Search() {
 		}
 	}
 	searchDocContents := make(map[string]string)
-	// 默认根据内容搜索
-	// v0.2.1 下线全文搜索功能
 	searchType = "title"
-	//if searchType == "title" {
-	//	documents, err = models.DocumentModel.GetDocumentsByLikeName(keyword)
-	//} else {
-	//	searchRes := global.DocSearcher.SearchDoc(types.SearchReq{Text: keyword})
-	//	searchDocIds := []string{}
-	//	for _, searchDoc := range searchRes.Docs {
-	//		if len(searchDoc.TokenSnippetLocs) == 0 {
-	//			continue
-	//		}
-	//		docId := searchDoc.DocId
-	//		content := searchDoc.Content
-	//		locIndex := searchDoc.TokenSnippetLocs[0]
-	//		searchContent := utils.Misc.SubStrUnicodeBySubStrIndex(content, keyword, locIndex, 30, 30)
-	//		searchDocContents[docId] = searchContent
-	//		searchDocIds = append(searchDocIds, docId)
-	//	}
-	//	documents, err = models.DocumentModel.GetDocumentsByDocumentIds(searchDocIds)
-	//}
 	documents, err = models.DocumentModel.GetDocumentsByLikeName(keyword)
 	if err != nil {
 		this.ViewError("搜索文档错误！")
