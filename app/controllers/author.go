@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Codgi-123/we-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/utils"
 	"github.com/astaxie/beego"
-	"github.com/phachon/mm-wiki/app/models"
-	"github.com/phachon/mm-wiki/app/utils"
 )
 
 type AuthorController struct {

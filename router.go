@@ -4,11 +4,11 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/Codgi-123/we-wiki/app"
+	"github.com/Codgi-123/we-wiki/app/controllers"
+	systemControllers "github.com/Codgi-123/we-wiki/app/modules/system/controllers"
+	"github.com/Codgi-123/we-wiki/app/utils"
 	"github.com/astaxie/beego"
-	"github.com/phachon/mm-wiki/app"
-	"github.com/phachon/mm-wiki/app/controllers"
-	systemControllers "github.com/phachon/mm-wiki/app/modules/system/controllers"
-	"github.com/phachon/mm-wiki/app/utils"
 )
 
 func init() {

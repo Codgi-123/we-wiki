@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/phachon/mm-wiki/app/utils"
+	"github.com/Codgi-123/we-wiki/app/utils"
 	"github.com/snail007/go-activerecord/mysql"
 )
 

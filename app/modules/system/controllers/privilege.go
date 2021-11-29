@@ -1,8 +1,8 @@
 package controllers
 
 import (
+	"github.com/Codgi-123/we-wiki/app/models"
 	"github.com/astaxie/beego"
-	"github.com/phachon/mm-wiki/app/models"
 )
 
 type PrivilegeController struct {

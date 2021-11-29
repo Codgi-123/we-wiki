@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Codgi-123/we-wiki/app/models"
 	"github.com/astaxie/beego/validation"
-	"github.com/phachon/mm-wiki/app/models"
 )
 
 type UserController struct {

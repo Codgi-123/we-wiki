@@ -1,8 +1,9 @@
-module github.com/phachon/mm-wiki
+module github.com/Codgi-123/we-wiki
 
 go 1.12
 
 replace github.com/coreos/go-systemd => ./vendor/github.com/coreos/go-systemd
+replace github.com/Codgi-123/we-wiki => ./github.com/phachon/mm-wiki/
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20190424111038-f61b66f89f4a // indirect

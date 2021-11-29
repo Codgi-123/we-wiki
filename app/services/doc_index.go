@@ -3,8 +3,8 @@ package services
 import (
 	"sync"
 
-	"github.com/phachon/mm-wiki/app/models"
-	"github.com/phachon/mm-wiki/global"
+	"github.com/Codgi-123/we-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/global"
 
 	"github.com/astaxie/beego/logs"
 	"github.com/go-ego/riot/types"

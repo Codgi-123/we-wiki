@@ -3,7 +3,7 @@ package controllers
 import (
 	"time"
 
-	"github.com/phachon/mm-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/models"
 )
 
 type CollectionController struct {

@@ -1,13 +1,14 @@
 package work
 
 import (
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/phachon/mm-wiki/app/models"
-	"github.com/phachon/mm-wiki/app/services"
-	"github.com/phachon/mm-wiki/app/utils"
 	"sync"
 	"time"
+
+	"github.com/Codgi-123/we-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/services"
+	"github.com/Codgi-123/we-wiki/app/utils"
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 var (

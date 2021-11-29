@@ -5,9 +5,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/phachon/mm-wiki/app/models"
-	"github.com/phachon/mm-wiki/app/services"
-	"github.com/phachon/mm-wiki/app/utils"
+	"github.com/Codgi-123/we-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/services"
+	"github.com/Codgi-123/we-wiki/app/utils"
 )
 
 type PageController struct {

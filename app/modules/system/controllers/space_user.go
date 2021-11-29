@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/phachon/mm-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/models"
 )
 
 type Space_UserController struct {

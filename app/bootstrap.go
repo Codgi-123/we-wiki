@@ -9,14 +9,14 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/Codgi-123/we-wiki/app/models"
+	"github.com/Codgi-123/we-wiki/app/utils"
+	"github.com/Codgi-123/we-wiki/app/work"
+	"github.com/Codgi-123/we-wiki/global"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/fatih/color"
 	"github.com/go-ego/riot/types"
-	"github.com/phachon/mm-wiki/app/models"
-	"github.com/phachon/mm-wiki/app/utils"
-	"github.com/phachon/mm-wiki/app/work"
-	"github.com/phachon/mm-wiki/global"
 	"github.com/snail007/go-activerecord/mysql"
 )
 
