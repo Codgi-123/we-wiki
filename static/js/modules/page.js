@@ -83,36 +83,11 @@ var Page = {
                     data: {'is_follow_doc': isFollowDoc}
                 };
                 $(element).ajaxSubmit(options);
-                // if (commentText && commentText.length > 0) {
-                //
-                // }else {
-                //     $("textarea[name='edit_comment']").focus();
-                // }
             },
             btn2: function(index, layero){
                 layer.close(index);
             }
         });
-
-        // layer.prompt({
-        //     title: '<i class="fa fa-volume-up"></i> 请输入修改备注',
-        //     formType: 2,
-        //     maxlength: 150,
-        //     value: '',
-        //     area: ['340px', '80px']
-        // }, function(comment, index, elem){
-        //     if (comment.trim()) {
-        //         layer.close(index);
-        //         var options = {
-        //             dataType: 'json',
-        //             success: response,
-        //             data: {'comment': comment}
-        //         };
-        //         $(element).ajaxSubmit(options);
-        //     }else {
-        //         elem.focus()
-        //     }
-        // });
 
         return false;
     },

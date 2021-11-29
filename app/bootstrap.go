@@ -103,7 +103,7 @@ func initConfig() {
 	beego.LoadAppConfig("ini", confFile)
 
 	// init name
-	beego.AppConfig.Set("sys.name", "mm-wiki")
+	beego.AppConfig.Set("sys.name", "we-wiki")
 	beego.BConfig.AppName = beego.AppConfig.String("sys.name")
 	beego.BConfig.ServerName = beego.AppConfig.String("sys.name")
 

@@ -1,28 +1,3 @@
-/**
- * Copyright (c) 2018 phachon@163.com
- * // var treeData = [
- //     { id:10, pId:0, name:"首页", open:true},
- //     { id:11, pId:0, name:"技术部"},
- //     { id:12, pId:0, name:"产品部"},
- //     { id:13, pId:0, name:"运营部", isParent:true},
- //     { id:111, pId:11, name:"前端开发组", isParent:true},
- //     { id:112, pId:11, name:"UED组", isParent:true},
- //     { id:113, pId:11, name:"后台开发组", isParent:true},
- //     { id:114, pId:11, name:"应用开发组", isParent:true},
- //     { id:115, pId:11, name:"基础研发组", isParent:true},
- //
- //     { id:121, pId:111, name:"前端CSS规范"},
- //     { id:122, pId:112, name:"UED 设计标准"},
- //     { id:123, pId:113, name:"PHP 代码规范"},
- //     { id:124, pId:114, name:"广告应用架构"},
- //     { id:125, pId:115, name:"消息中间件的设计"},
- //
- //     { id:121, pId:12, name:"视频组", isParent:true},
- //     { id:122, pId:12, name:"社交组", isParent:true},
- //     { id:123, pId:12, name:"会员组", isParent:true},
- //     { id:124, pId:12, name:"广告组", isParent:true}
- // ];
- */
 var Document = {
 
     /**

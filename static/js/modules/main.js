@@ -1,10 +1,5 @@
-/**
- * main.js
- * Copyright (c) 2018 phachon@163.com
- */
-
 var Main = {
-    
+
     Search:function (searchField) {
 
         $(searchField).bind('input propertychange', function() {
@@ -14,8 +9,8 @@ var Main = {
 
         var timeoutId = null;
 
-        var metaChar = '[\\[\\]\\\\\^\\$\\.\\|\\?\\*\\+\\(\\)]'; //js meta characters
-        var rexMeta = new RegExp(metaChar, 'gi');//regular expression to match meta characters
+        var metaChar = '[\\[\\]\\\\\^\\$\\.\\|\\?\\*\\+\\(\\)]';
+        var rexMeta = new RegExp(metaChar, 'gi');
 
         function textFilter(_keywords) {
 
